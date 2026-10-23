@@ -11,6 +11,7 @@ import com.genialeast.mviarchitecture.feature.news.NewsDetailViewModel
 object AppRoutes {
     const val LOGIN = "login"
     const val MAIN = "main"
+    const val WATERMARK = "watermark"
     const val NEWS_DETAIL = "news/{${NewsDetailViewModel.ARTICLE_ID}}"
 
     fun newsDetail(articleId: String): String = "news/$articleId"

@@ -29,6 +29,7 @@ import com.genialeast.mviarchitecture.feature.login.LoginRoute
 import com.genialeast.mviarchitecture.feature.main.MainRoute
 import com.genialeast.mviarchitecture.feature.news.NewsDetailRoute
 import com.genialeast.mviarchitecture.feature.news.NewsDetailViewModel
+import com.genialeast.mviarchitecture.feature.watermark.WatermarkRoute
 import kotlinx.coroutines.launch
 
 /**
@@ -91,6 +92,15 @@ fun NewsNavHost(
                                 launchSingleTop = true
                             }
                         },
+                        onOpenWatermark = {
+                            navController.navigate(AppRoutes.WATERMARK)
+                        },
+                        onShowMessage = showMessage,
+                    )
+                }
+                composable(AppRoutes.WATERMARK) {
+                    WatermarkRoute(
+                        onBack = { navController.popBackStack() },
                         onShowMessage = showMessage,
                     )
                 }

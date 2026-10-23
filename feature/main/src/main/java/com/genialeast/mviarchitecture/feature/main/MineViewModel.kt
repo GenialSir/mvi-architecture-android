@@ -44,6 +44,7 @@ class MineViewModel @Inject constructor(
     override fun handleIntent(intent: MineIntent) {
         when (intent) {
             MineIntent.Logout -> logout()
+            MineIntent.OpenWatermark -> sendEffect(MineEffect.NavigateToWatermark)
             is MineIntent.OpenArticle -> sendEffect(MineEffect.NavigateToDetail(intent.id))
             is MineIntent.RemoveFavorite -> {
                 viewModelScope.launch { favoriteRepository.toggle(intent.id) }

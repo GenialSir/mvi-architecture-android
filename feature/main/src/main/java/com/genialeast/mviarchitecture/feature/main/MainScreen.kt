@@ -32,6 +32,7 @@ import com.genialeast.mviarchitecture.feature.news.NewsRoute
 fun MainRoute(
     onOpenArticle: (String) -> Unit,
     onNavigateToLogin: () -> Unit,
+    onOpenWatermark: () -> Unit,
     onShowMessage: (String) -> Unit,
     viewModel: MainViewModel = hiltViewModel(),
 ) {
@@ -41,6 +42,7 @@ fun MainRoute(
         onIntent = viewModel::onIntent,
         onOpenArticle = onOpenArticle,
         onNavigateToLogin = onNavigateToLogin,
+        onOpenWatermark = onOpenWatermark,
         onShowMessage = onShowMessage,
     )
 }
@@ -60,6 +62,7 @@ fun MainScreen(
     onIntent: (MainIntent) -> Unit,
     onOpenArticle: (String) -> Unit,
     onNavigateToLogin: () -> Unit,
+    onOpenWatermark: () -> Unit,
     onShowMessage: (String) -> Unit,
 ) {
     Scaffold(
@@ -99,6 +102,7 @@ fun MainScreen(
             MainTab.MINE -> MineRoute(
                 onNavigateToLogin = onNavigateToLogin,
                 onOpenArticle = onOpenArticle,
+                onOpenWatermark = onOpenWatermark,
                 modifier = Modifier.padding(innerPadding),
             )
         }

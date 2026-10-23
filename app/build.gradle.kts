@@ -49,6 +49,7 @@ dependencies {
     implementation(project(":feature:login"))
     implementation(project(":feature:main"))
     implementation(project(":feature:news"))
+    implementation(project(":feature:watermark"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

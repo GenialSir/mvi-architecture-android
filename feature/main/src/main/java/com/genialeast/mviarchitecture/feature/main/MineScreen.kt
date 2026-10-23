@@ -13,6 +13,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -33,6 +34,7 @@ import com.genialeast.mviarchitecture.feature.news.NewsFeedCard
 fun MineRoute(
     onNavigateToLogin: () -> Unit,
     onOpenArticle: (String) -> Unit,
+    onOpenWatermark: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: MineViewModel = hiltViewModel(),
 ) {
@@ -42,6 +44,7 @@ fun MineRoute(
         viewModel.effect.collect { effect ->
             when (effect) {
                 MineEffect.NavigateToLogin -> onNavigateToLogin()
+                MineEffect.NavigateToWatermark -> onOpenWatermark()
                 is MineEffect.NavigateToDetail -> onOpenArticle(effect.id)
             }
         }
@@ -101,6 +104,15 @@ fun MineScreen(
                         modifier = Modifier.padding(top = 4.dp),
                     )
                 }
+            }
+        }
+        item {
+            OutlinedButton(
+                onClick = { onIntent(MineIntent.OpenWatermark) },
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp),
+            ) {
+                Text("添加水印")
             }
         }
         item {

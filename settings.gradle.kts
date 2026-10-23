@@ -28,4 +28,5 @@ include(":core:data")
 include(":feature:login")
 include(":feature:main")
 include(":feature:news")
+include(":feature:watermark")
  

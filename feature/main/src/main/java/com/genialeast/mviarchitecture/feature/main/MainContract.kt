@@ -93,6 +93,7 @@ data class MineUiState(
  */
 sealed interface MineIntent {
     data object Logout : MineIntent
+    data object OpenWatermark : MineIntent
     data class OpenArticle(val id: String) : MineIntent
     data class RemoveFavorite(val id: String) : MineIntent
 }
@@ -105,5 +106,6 @@ sealed interface MineIntent {
  */
 sealed interface MineEffect {
     data object NavigateToLogin : MineEffect
+    data object NavigateToWatermark : MineEffect
     data class NavigateToDetail(val id: String) : MineEffect
 }
